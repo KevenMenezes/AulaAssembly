@@ -1,0 +1,20 @@
+	.data
+
+mensagem: 	.asciiz "Digite um numero para saber seu dobro: "
+mensagem2: 	.asciiz "O dobro do numero digitado é: "
+
+	.text
+
+main:	addi $v0, $zero, 4
+	la $a0, mensagem
+	syscall
+	addi $v0, $zero, 5
+	syscall
+	add $s0, $zero, $v0
+	addi $v0, $zero, 4
+	la $a0, mensagem2
+	syscall
+	addi $v0, $zero, 1
+	add $a0, $s0, $s0
+	syscall
+	jr$ra
